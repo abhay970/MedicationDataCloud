@@ -1,0 +1,25 @@
+<template>
+    <template if:true={showMain}>
+        <div class="slds-card custom-card">
+            <div class="input-container">
+                <lightning-input type="text" label="Search By ID" onchange={handleName} value={nameValue} class="input-field"></lightning-input>
+            </div>
+            <div class="button-container">
+                <lightning-button variant="brand" label="Search" onclick={handleSearchDeB} class="slds-align_absolute-center"></lightning-button>
+            </div>
+        </div>
+    </template>
+    <template if:true={showResult}>
+        <div class="slds-card custom-card-back">
+            <div class="back-button-container">
+                <lightning-button variant="brand" label="Back" onclick={handleBackDB} class="slds-align_absolute-center" style="margin-top: 6px;"></lightning-button>
+            </div>
+    
+            <template for:each={providerData} for:item="item">
+                <div key={item.id}>
+                    <c-patients-Details-Child item={item}></c-patients-Details-Child>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>

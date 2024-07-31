@@ -1,0 +1,44 @@
+<template>
+    <lightning-card variant="Narrow">
+        <!-- <template> -->
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size--1-of-4">
+                    <div style="padding-top:5px;">
+                  
+                        <lightning-combobox name="Quick Filter" label=""  ></lightning-combobox>
+                  
+                    </div>
+                </div>
+    
+                <div class="slds-col slds-size--1-of-4">
+                    <lightning-input class="slds-p-left_medium" type="date" message-when-range-overflow="Must be less than To Date" max={endDate} name="input2" label="From" value={startDate}  >></lightning-input>
+                </div>
+    
+                <div class="slds-col slds-size--1-of-4">
+                    <lightning-input class="slds-p-left_medium" type="date" name="input2" message-when-range-underflow="Must be greater than From Date" label="To" min={startDate} value={endDate}></lightning-input>
+                </div>
+    
+                <div class="slds-col slds-size--1-of-4">
+                    <div style="padding-top:21px;">
+                            <lightning-button class="slds-p-left_medium" variant="brand" label="Filter" title="Get Data" ></lightning-button>
+                    </div>
+                </div>
+            </div>
+        <!-- </template> -->
+        <div class="slds-p-around_medium">
+            <div class="toggle-container" onclick={toggleChart}>
+                <template if:true={isChartVisible}>
+                    <lightning-icon icon-name="utility:chevrondown" size="xx-small" class="slds-var-p-horizontal_x-small custom-icon"></lightning-icon>
+                </template>
+                <template if:false={isChartVisible}>
+                    <lightning-icon icon-name="utility:chevronright" size="xx-small" class="slds-var-p-horizontal_x-small custom-icon"></lightning-icon>
+                </template>
+                <span class="toggle-label">Blood Pressure</span>
+            </div>
+            <div class="chart-container slds-hide">
+                <canvas class="linechart" lwc:dom="manual"></canvas>
+            </div>
+        </div>
+        
+    </lightning-card>
+</template>

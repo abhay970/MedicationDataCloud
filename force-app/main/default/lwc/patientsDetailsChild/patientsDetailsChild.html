@@ -1,0 +1,127 @@
+<template>
+    <!-- Provider Details Section -->
+    <div class="provider-details-container" onclick={handleShow} data-target-id={item.id}>
+        <template lwc:if={showProviderSearchResultCardDB}>
+            <lightning-icon icon-name="utility:chevrondown" size='xx-small' class="slds-var-p-horizontal_x-small custom-icon"></lightning-icon>
+        </template>
+        <template lwc:else>
+            <lightning-icon icon-name="utility:chevronright" size='xx-small' class="slds-var-p-horizontal_x-small custom-icon"></lightning-icon>
+        </template>
+        <p class="provider-details-text" key={item.id}>{item.name}</p>
+    </div>
+
+    <template lwc:if={showProviderSearchResultCardDB}>
+        <!-- MedicationRequest Details section -->
+        <div class="provider-details-containerss provider-details-texts" onclick={handleShowOn}>
+            <template lwc:if={PernalDetail}>
+                <lightning-icon icon-name="utility:chevrondown" size='xx-small' class="slds-var-p-horizontal_x-small"></lightning-icon>
+            </template>
+            <template lwc:else>
+                <lightning-icon icon-name="utility:chevronright" size='xx-small' class="slds-var-p-horizontal_x-small"></lightning-icon>
+            </template>
+            <p class="provider-details-text12" key={item.id}><b>MedicationRequest Details</b></p>
+        </div>
+        <template lwc:if={PernalDetail}>
+            <div class="custom-table-container">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Identifier</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={currentMedRequests} for:item="item1">
+                            <tr key={item1.id__c}>
+                                <td class="truncate">{item1.category__c}</td>
+                                <td class="truncate">{item1.identifier__c}</td>
+                                <td class="truncate">{item1.status__c}</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <span class="page-info">{medRequestPage} / {totalMedRequestPages}</span>
+                    <button onclick={prevPageMedRequest} disabled={isFirstPageMedRequest}>&lt;</button>
+                    <button onclick={nextPageMedRequest} disabled={isLastPageMedRequest}>&gt;</button>
+                </div>
+            </div>
+        </template>
+        <!-- MedicationRequest Details section end -->
+
+        <!-- Medication Details section -->
+        <div class="provider-details-containerss provider-details-texts" onclick={handleShowTw} data-target-id={item.npi}>
+            <template lwc:if={specialties}>
+                <lightning-icon icon-name="utility:chevrondown" size='xx-small' class="slds-var-p-horizontal_x-small"></lightning-icon>
+            </template>
+            <template lwc:else>
+                <lightning-icon icon-name="utility:chevronright" size='xx-small' class="slds-var-p-horizontal_x-small"></lightning-icon>
+            </template>
+            <p class="provider-details-text" key={item.name}><b>Medication Details</b></p>
+        </div>
+        <template lwc:if={specialties}>
+            <div class="custom-table-container">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Medication-Id</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={currentMedications} for:item="item2">
+                            <tr key={item2.id__c}>
+                                <td class="truncate">{item2.display__c}</td>
+                                <td class="truncate">{item2.Medication_Id__c}</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <span class="page-info">{medicationPage} / {totalMedicationPages}</span>
+                    <button onclick={prevPageMedication} disabled={isFirstPageMedication}>&lt;</button>
+                    <button onclick={nextPageMedication} disabled={isLastPageMedication}>&gt;</button>
+                </div>
+            </div>
+        </template>
+        <!-- Medication Details section end -->
+
+        <!-- Practitioner Details section -->
+        <div class="provider-details-containerss provider-details-texts" onclick={handleShowThr} data-target-id={item.npi}>
+            <template lwc:if={insurancesDetails}>
+                <lightning-icon icon-name="utility:chevrondown" size='xx-small' class="slds-var-p-horizontal_x-small"></lightning-icon>
+            </template>
+            <template lwc:else>
+                <lightning-icon icon-name="utility:chevronright" size='xx-small' class="slds-var-p-horizontal_x-small"></lightning-icon>
+            </template>
+            <p class="provider-details-text" key={item.name}><b>Practitioner Details</b></p>
+        </div>
+        <template lwc:if={insurancesDetails}>
+            <div class="custom-table-container">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={currentPractitioners} for:item="item3">
+                            <tr key={item3.Practitioner_Id__c}>
+                                <td class="truncate">{item3.display__c}</td>
+                                <td class="truncate">{item3.Practitioner_Id__c}</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <span class="page-info">{practitionerPage} / {totalPractitionerPages}</span>
+                    <button onclick={prevPagePractitioner} disabled={isFirstPagePractitioner}>&lt;</button>
+                    <button onclick={nextPagePractitioner} disabled={isLastPagePractitioner}>&gt;</button>
+                </div>
+            </div>
+        </template>
+        <!-- Practitioner Details section end -->
+    </template>
+</template>

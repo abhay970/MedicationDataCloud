@@ -1,0 +1,16 @@
+<template>
+    <div class={sectionClass} data-section-id="chart-parent-section">
+        <h3 class="slds-section__title" onclick={toggleSection}>
+            <button aria-controls="observation-chart-section" class="slds-button slds-section__title-action">
+                <lightning-icon icon-name={iconName} alternative-text="Toggle" size="small"></lightning-icon>
+                <span class="slds-truncate" title="observation-span">{readingtype}</span>
+            </button>
+        </h3>
+        <div class="slds-section__content">
+            <canvas class="lineChart" height="400"></canvas>
+            <p class="slds-text-color_error slds-m-top_small">
+                Note: This data is not correct and is for demonstration purposes only.
+            </p>
+        </div>
+    </div>
+</template>

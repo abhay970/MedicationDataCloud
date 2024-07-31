@@ -1,0 +1,24 @@
+.toggle-container {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    width: 100%;
+    border:1px solid black;
+    border-radius: 10px;
+    cursor: pointer;  
+}
+.custom-icon {
+    flex-shrink: 0;
+    margin-right: 0.5rem;
+}
+.toggle-label {
+    flex-grow: 1;
+    text-align: left;
+}
+.chart-container {
+    margin-top: 1rem;
+}
+.slds-hide {
+    display: none;
+}

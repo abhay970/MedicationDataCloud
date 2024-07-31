@@ -1,0 +1,31 @@
+<template>
+    <template if:true={Spinner}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+           aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+           <div class="slds-modal__container">
+              <!-- modal header start -->
+              <header class="slds-modal__header">
+              
+              </header>
+              <!-- modal body start -->
+              <div class="Table1">
+                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-337"
+                    style="max-height:400px;overflow:auto;">
+                    <lightning-card>
+                       <div class="Succ">
+                       <!-- <h2 id="modal-heading-10" class="slds-text-heading_medium slds-hyphenate">Progressing </h2> -->
+                          <lightning-spinner variant="base" size="medium"></lightning-spinner>
+                       </div>
+                    </lightning-card>
+                 </div>
+              </div>
+              <!-- modal footer start-->
+              <footer class="slds-modal__footer">
+                 <div class="slds-align_absolute-center">
+                 </div>
+              </footer>
+           </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+     </template>
+</template>
